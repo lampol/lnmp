@@ -21,7 +21,7 @@ function Mk_Cp_Mysql(){
 
 
 function Install_Mysql(){
-	 [[ -f $SRC_DIR/$1 ]] && rm -f $SRC_DIR/${1%%.*}*
+	 [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
 	wget https://dev.mysql.com/get/Downloads/MySQL-$2/$1 --no-check-certificate  -P  $SRC_DIR
         CONFIGURE=CONF_MYSQL
 	Add_User $MYSQL_USER $MYSQL_GROUP
