@@ -35,10 +35,13 @@ function Add_User(){
         	groupadd $GROUP
 	fi
 	egrep "^$USER" /etc/passwd  >/dev/null
-	if [ $? -ne 0 ]
-	then
-       		 useradd -s /sbin/nologin -g $GROUP $USER
-	fi
+	if [ $? -ne 0 && $USER -eq 'www' ]
+        then
+                 useradd -s /sbin/nologin -g $GROUP $USER
+
+        else
+                useradd -M -s /sbin/nologin -g $GROUP $USER
+        fi
 }
 
 function Install(){
