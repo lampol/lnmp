@@ -12,6 +12,8 @@ function Mk_Cp_Mysql(){
 	chown -R mysql.mysql $SOFT_DIR/mysql
 	cp $SOFT_DIR/mysql/bin/mysql  /usr/bin
 	cp $INIT_DIR/mysqld  /etc/init.d/mysqld
+	mkdir $SOFT_DIR/mysql/etc
+	cp $CONF_DIR/my.cnf   $SOFT_DIR/mysql/etc/
 	chmod +x /etc/init.d/mysqld
 	rm -f /etc/my.cnf
 	$SOFT_DIR/mysql/scripts/mysql_install_db  --datadir=/usr/local/mysql/data  --basedir=/usr/local/mysql  --user=mysql
