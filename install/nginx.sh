@@ -22,7 +22,7 @@ function Mk_Cp(){
 }
 
 function Install_Nginx(){
-	[[ -f $SRC_DIR/$1 ]] && rm -f $SRC_DIR/$1
+	[[ -f $SRC_DIR/$1 ]] && rm -f $SRC_DIR/${1%%.*}*
 	wget  http://nginx.org/download/$1  -P $SRC_DIR
 	CONFIGURE=CONF_NGINX
         Add_User $NGINX_USER $NGINX_GROUP	

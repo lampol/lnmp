@@ -19,7 +19,7 @@ function Mk_Cp_Php(){
 
 
 function Install_Php(){
-	[[ -f $SRC_DIR/$1 ]] && rm -f $SRC_DIR/$1
+	[[ -f $SRC_DIR/$1 ]] && rm -f $SRC_DIR/${1%%.*}*
 	wget http://am1.php.net/get/$1/from/this/mirror -P $SRC_DIR
 	CONFIGURE=CONF_PHP
         Tar $1 && Install $CONFIGURE
