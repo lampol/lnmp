@@ -52,10 +52,10 @@ function Start_Install(){
                  MySQL_VER="mysql-5.6.37.tar.gz"
                  VER="5.6"
                  ;;
-                3)
-                MySQL_VER="mysql-5.7.17.tar.gz"
-                VER="5.7"
-                 ;;
+         #       3)
+         #      MySQL_VER="mysql-5.7.17.tar.gz"
+         #      VER="5.7"
+         #      ;;
         esac
         Yum_Install
         Install_Nginx $NGINX_VER
@@ -98,7 +98,7 @@ clear
         MySQL_VER=2
         echo -e "1)  `Print_Color '32' 'mysql-5.5.54'`"
         echo -e "2)  `Print_Color '32' 'mysql-5.6.37'`"
-        echo -e "3)  `Print_Color '32' 'mysql-5.7.17'`"
+        #echo -e "3)  `Print_Color '32' 'mysql-5.7.17'`"
         read -p "Please Enter Your MySQL Choice(1-3) Default(2):" MySQL_VER
         [[ $MySQL_VER -lt 1 ]] || [[ $MySQL_VER -ge 4 ]] && MySQL_VER=2
 #End Select MySQL Ver
