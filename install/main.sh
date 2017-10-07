@@ -58,9 +58,9 @@ function Start_Install(){
                  ;;
         esac
         Yum_Install
-#       Install_Nginx $NGINX_VER
+        Install_Nginx $NGINX_VER
         Install_Mysql $MySQL_VER $VER
-#       Install_Php  $PHP_VER
+        Install_Php  $PHP_VER
 
 }
 
