@@ -35,7 +35,7 @@ function Add_User(){
         	groupadd $GROUP
 	fi
 	egrep "^$USER" /etc/passwd  >/dev/null
-	if [ $? -ne 0 && $USER -eq 'www' ]
+	if [ $? -ne 0 -a "$USER"=="www" ]
         then
                  useradd -s /sbin/nologin -g $GROUP $USER
 

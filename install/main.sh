@@ -57,7 +57,8 @@ function Start_Install(){
          #      VER="5.7"
          #      ;;
         esac
-        Yum_Install
+	YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
+        [[ $YUM_COUNT -lt 4 ]] &&  Yum_Install
         Install_Nginx $NGINX_VER
         Install_Mysql $MySQL_VER $VER
         Install_Php  $PHP_VER
