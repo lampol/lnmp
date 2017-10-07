@@ -1,2 +1,3 @@
-# lnmp
-this is install lnmp script
+# 一键安装lnmp环境的脚本
+###系统版本
+>亲测Centos6系统没有问题,其他系统以后慢慢完善
