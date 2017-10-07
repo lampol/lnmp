@@ -13,6 +13,7 @@ function Mk_Cp_Php(){
 	cp php.ini-production          $SOFT_DIR/php/etc/php.ini
 	cp $CONF_DIR/php-fpm.conf      $SOFT_DIR/php/etc/php-fpm.conf
 	cp $INIT_DIR/php-fpm           /etc/init.d/
+	cp $SOFT_DIR/php/bin/php       /usr/bin/
 	chmod +x /etc/init.d/php-fpm
 }
 
