@@ -13,6 +13,15 @@ IP=`ifconfig| grep Bcast:|awk  -F':' '{print $2}'|awk '{print $1}'`
 
 
 function welcome(){
+#启动服务以及关闭防火墙
+	/etc/init.d/iptable stop
+	/etc/init.d/nginx  start
+	/etc/init.d/php-fpm  start
+	/etc/init.d/mysqld  start
+	chkconfig --add nginx
+	chkconfig --add php-fpm
+	chkconfig --add mysqld
+
 	clear
 	echo -e "================================================="
 	echo -e "****" `Print_Color '32' '    CONGRATULATIONS INSTALL LNMP SUCCESS'`
