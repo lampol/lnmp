@@ -17,6 +17,8 @@ function Mk_Cp(){
 
 	cp -r $CONF_DIR/vhost   $SOFT_DIR/nginx/conf
 
+	cp   $CONF_DIR/index.html   /home/www/
+
 	cp  $INIT_DIR/nginx  /etc/init.d/
 	chmod +x /etc/init.d/nginx 
 }

@@ -1,0 +1,196 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>欢迎使用---lampol/lnmp</title>
+<style>
+body {
+	margin:0;
+	padding:0;
+}
+.container{
+	position:absolute;
+	margin:10% 30%;
+	color:red;
+	text-align:center;
+	font-size:25px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	line-height:50px;
+}
+.container div a{
+	text-decoration:none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>欢迎使用lampol/lnmp</h1>
+<p>在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流</p>
+    <div>QQ: 807968192</div>
+    <div>php/linux技术交流群：163656536</div>
+    <div>头条号 : (IT圈的那些事儿)</div>
+    <div><a href="http://www.lampol-blog.com">个人博客</a></div>
+    <div><a href="https://chuanke.baidu.com/course/_lampol_____.html">百度传课视频教程</a></div>
+</p>
+</div>
+
+<script>
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame   ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame    ||
+      window.oRequestAnimationFrame      ||
+      window.msRequestAnimationFrame     ||
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+})();
+
+const
+{ random, atan2, cos, sin, hypot } = Math
+,max = 200
+,canvas = document.createElement("canvas")
+,$ = canvas.getContext('2d')
+,body = document.body
+,stars = [];
+
+body.style.backgroundColor = "#f2f2f2";
+body.style.overflow = "hidden";
+body.appendChild(canvas);
+// Disable normal cursor, we just want to show the blackhole.
+canvas.style.cursor = 'none';
+
+let
+width = canvas.width = window.innerWidth
+,height = canvas.height = window.innerHeight
+,halfScreenX = width/2
+,halfScreenY = height/2
+,point = { x: halfScreenX, y: halfScreenY }
+,cursor = { x: halfScreenX, y: halfScreenY }
+,blackHolesize = 40
+,hue = 0;
+
+// Create our star object
+function Star(){};
+
+Star.prototype = {
+  init(){
+    this.hue = hue;
+    this.alpha = 0;
+    this.size = this.random(0, 4);
+    this.x = this.random(0, width);
+    this.y = this.random(0, height);
+    this.speed = this.size * 0.05;
+    this.updated = null;
+    this.frame = 0;
+    this.maxFrames = 50;
+    return this;
+  },
+  draw(){
+    // The Starfield
+    $.strokeStyle = `hsla(${this.hue}, 50%, 85%, ${this.alpha})`;
+    $.beginPath();
+    $.lineWidth = 0.5;
+    $.arc(this.x, this.y, this.size, 0, 2 * 3.142);
+    $.stroke();
+    $.closePath();
+
+    // Our Cursor Circle
+    $.beginPath();
+    $.strokeStyle = `rgb(20,20,20)`;
+    $.lineWidth = 1;
+    var gradient = $.createRadialGradient(cursor.x, cursor.y, blackHolesize/2, cursor.x, cursor.y, 2);
+    gradient.addColorStop(0, '#000000');
+    gradient.addColorStop(0.9, '#212121');
+    gradient.addColorStop(1, '#131416');
+    $.fillStyle = gradient
+    $.arc(cursor.x, cursor.y, blackHolesize/2, 0, Math.PI*2, false);
+    $.stroke();
+    $.fill();
+    $.closePath();
+    // Update the scene
+    this.update();
+  },
+  update(){
+    if(this.updated){
+      this.alpha *= 0.42;
+      this.size += 4;
+      this.frame++;
+      if(this.frame > this.maxFrames){
+        this.reset();
+      }
+    } else if(this.distance(point.x, point.y) < (blackHolesize-16)){
+      this.updated = true;
+    } else {
+      let dx = point.x - this.x;
+      let dy = point.y - this.y;
+      let angle = atan2(dy, dx);
+
+      this.alpha += .01;
+      this.x += this.speed * cos(angle);
+      this.y += this.speed * sin(angle);
+      this.speed += 0.01;
+    }
+  },
+  reset(){
+    this.init();
+  },
+  distance(x, y){
+    return hypot(x - this.x, y - this.y);
+  },
+  random(min, max) {
+    return random() * (max - min) + min;
+  }
+}
+
+function animate(){
+  $.fillStyle = `rgba(10,20,30, .3)`;
+  $.fillRect(0, 0, width, height);
+  stars.forEach((p) => {
+    p.draw();
+  });
+  hue += 1;
+
+  window.requestAnimationFrame(animate);
+}
+
+function collision(e){
+  point.x = e.collision ? e.collision[0].clientX : e.clientX;
+  point.y = e.collision ? e.collision[0].clientY : e.clientY;
+  cursor.x = e.clientX;
+  cursor.y = e.clientY;
+}
+
+function setup(){
+  for(let i=0; i<max; i++){
+    setTimeout(() => {
+      let p = new Star().init();
+      stars.push(p);
+    }, i * 8);
+  }
+
+  canvas.addEventListener("mousemove", collision);
+
+  canvas.addEventListener("touchmove", collision);
+
+  canvas.addEventListener("mouseleave", () => {
+    point = cursor = { x: halfScreenX, y: halfScreenY };
+  });
+
+  window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    point = { x: halfScreenX, y: halfScreenY };
+  });
+
+  animate();
+
+}
+// Fire it up.
+setup();</script>
+<div style="text-align:center;">
+<p>更多源码：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+</div>
+</body>
+</html>

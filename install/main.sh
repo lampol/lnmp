@@ -12,6 +12,7 @@ source $BASE_DIR/install/yum.sh
 source $BASE_DIR/install/nginx.sh
 source $BASE_DIR/install/php.sh
 source $BASE_DIR/install/mysql.sh
+source $BASE_DIR/install/welcome.sh
 
 function Start_Install(){
         NGINX_VER=$1
