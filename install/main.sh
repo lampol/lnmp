@@ -63,7 +63,7 @@ function Start_Install(){
         Install_Nginx $NGINX_VER
         Install_Mysql $MySQL_VER $VER
         Install_Php  $PHP_VER
-
+	welcome $NGINX_VER  $MySQL_VER $PHP_VER
 }
 
 function Init_Install(){
