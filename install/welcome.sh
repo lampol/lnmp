@@ -13,8 +13,7 @@ IP=`ifconfig| grep Bcast:|awk  -F':' '{print $2}'|awk '{print $1}'`
 
 
 function welcome(){
-#启动服务以及关闭防火墙
-	/etc/init.d/iptables stop
+#启动服务
 	/etc/init.d/nginx  start
 	/etc/init.d/php-fpm  start
 	/etc/init.d/mysqld  start
