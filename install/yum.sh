@@ -10,6 +10,14 @@
 #=============================================================
 
 function Yum_Install(){
-
-        yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm  gcc gcc-c++ wget  pcre-devel openssl openssl-devel libxml2-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel libicu-devel libmcrypt-devel openssl-devel libxslt-devel cmake ncurses-devel perl  bison
+	#check centos7 or 6
+	if [ $1 -eq 7 ]
+        then
+                yum install -y  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+        elif [ $1 -eq 6 ]
+        then
+               yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+        fi
+	#start install dependency
+        yum install -y gcc gcc-c++ wget git lrzsz  pcre-devel openssl openssl-devel libxml2-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel libicu-devel libmcrypt-devel libxslt-devel cmake ncurses-devel perl  bison
 }

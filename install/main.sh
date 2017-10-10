@@ -58,8 +58,8 @@ function Start_Install(){
          #      VER="5.7"
          #      ;;
         esac
-	YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
-        [[ $YUM_COUNT -lt 4 ]] &&  Yum_Install
+#	YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
+ #       [[ $YUM_COUNT -lt 4 ]] &&  Yum_Install
         Install_Nginx $NGINX_VER
         Install_Mysql $MySQL_VER $VER
         Install_Php  $PHP_VER
@@ -67,6 +67,15 @@ function Start_Install(){
 }
 
 function Init_Install(){
+#check OS 
+
+if [ "$2" != CentOS ]
+then
+        clear
+        echo -e " `Print_Color '31' 'NOW ONLY SUPPORT CentOS6 AND 7'`"
+        exit 1
+fi
+
 clear
 #Start Select Nginx Ver
         echo -e "================================================="
@@ -104,5 +113,11 @@ clear
         read -p "Please Enter Your MySQL Choice(1-3) Default(2):" MySQL_VER
         [[ $MySQL_VER -lt 1 ]] || [[ $MySQL_VER -ge 4 ]] && MySQL_VER=2
 #End Select MySQL Ver
+
+# yum install
+
+YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
+[[ $YUM_COUNT -lt 4 ]] &&  Yum_Install $1
+#install
  Start_Install $NGINX_VER  $PHP_VER $MySQL_VER
 }

@@ -17,3 +17,5 @@ SERVER_DIR=/home/www
 SOFT_DIR=/usr/local
 CONF_DIR=$BASE_DIR/conf
 INIT_DIR=$BASE_DIR/init.d
+RELEASE=`cat /etc/redhat-release | awk -F'.' '{print $1}'|awk  '{print $NF}'`
+OS=`cat /etc/redhat-release |awk '{print $1}'`

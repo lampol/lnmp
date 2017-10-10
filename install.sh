@@ -36,7 +36,7 @@ read -p "Please Enter Your Choice(1/2):" input
 
 case "$input" in
 	1)
-	  Init_Install   
+	  Init_Install $RELEASE $OS 
 	;;
 	*)
 	   Print_Color "32" "You Have Exit Install Welcome Install Again"
