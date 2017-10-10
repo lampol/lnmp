@@ -21,7 +21,7 @@ function Mk_Cp_Php(){
 function Install_Php(){
 	[[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
 	wget http://am1.php.net/get/$1/from/this/mirror -O $SRC_DIR/$1
-	[[ $? -ne 0 ]] && clear; echo -e "`Print_Color '31' "download $1 failed please try again"`" ;exit 1
+	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
 	CONFIGURE=CONF_PHP
         Tar $1 && Install $CONFIGURE
         Mk_Cp_Php
