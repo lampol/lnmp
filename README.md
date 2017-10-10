@@ -46,6 +46,19 @@
 /etc/init.d/php-fpm  start 
 /etc/init.d/mysql   start
 ```
+### 注意!!！
+
+> 强烈建议安装完后修改MySQL的密码  默认为空
+
+#### 修改root密码 禁止远程root登录
+
+```javascript
+	cd lnmp/shell //进入到shell文件夹 
+	chmod +x mysql_secure_installation  //给执行的权限
+	./mysql_secure_installation  //按照提示一步一步操作  设置root密码 以及禁止root的远程登录
+
+```
+
 #### 检测启动
 ```javascript
 运行这个命令   netstat  -nltp 
