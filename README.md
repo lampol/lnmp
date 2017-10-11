@@ -53,9 +53,9 @@
 #### 修改root密码 禁止远程root登录
 
 ```javascript
-	cd lnmp/shell //进入到shell文件夹 
-	chmod +x mysql_secure_installation  //给执行的权限
-	./mysql_secure_installation  //按照提示一步一步操作  设置root密码 以及禁止root的远程登录
+cd lnmp/shell //进入到shell文件夹 
+chmod +x mysql_secure_installation  //给执行的权限
+./mysql_secure_installation  //按照提示一步一步操作  设置root密码 以及禁止root的远程登录
 
 ```
 
