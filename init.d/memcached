@@ -1,0 +1,76 @@
+#! /bin/sh
+
+# =================================================================
+# FileName          memcached.sh
+# Copyright (C)     2016 root <root@lampol>
+# CreateTime        2016-11-16 21:12 
+# Author            Lampol
+# Email             807968192@qq.com
+# Distributed under terms of the MIT license.
+#==================================================================
+
+#======================REBOOT AUTOSTART============================
+#chkconfig:2345 64 65
+#Description:startup memcached
+
+#source script library
+. /etc/init.d/functions
+
+
+PROG=memcached
+EXEC=/usr/local/memcached/bin/memcached
+LOCKFILE=/var/lock/subsys/memcached
+PORT=11211
+PIDFILE=/var/run/memcached.pid
+USER=root
+
+
+if [ $UID -ne 0 -a $# -ne 1 ]
+        then
+        echo "USAGE $0 {start|stop|restart}"
+fi
+
+function start_mem(){
+   if netstat -nltp| grep -v grep | grep -q memcached
+   then
+       echo "Memcached IS Running..."
+       exit 1
+   fi
+
+   if  test -f $EXEC 
+   then
+     $EXEC -u $USER -p $PORT -P $PIDFILE -d
+     RETVAL=$?
+     [ $RETVAL -eq 0 ] && touch $LOCKFILE
+     action "START MySQL SUCCESS" /bin/true
+   fi
+}
+
+function stop_mem(){
+   if netstat -nltp| grep -v grep | grep -q memcached
+   then
+       killproc $EXEC
+       RETVAL=$?
+      [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
+      action "STOP Memcached SUCCESS" /bin/true
+    else
+      action "Memcached IS NOT RUNNING" /bin/false
+   fi
+
+}
+
+case "$1" in
+	start)
+		start_mem
+	;;
+	stop)
+	   	stop_mem
+        ;;
+	restart)
+	       stop_mem
+	       start_mem
+	;;
+	*)
+	 echo "USAGE $0 {start|stop|restart}"
+	 exit 1
+esac

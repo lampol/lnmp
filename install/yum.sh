@@ -24,6 +24,6 @@ function Yum_Install(){
 
 
 function Yum_Install_Tool(){
-	yum install -y gcc gcc-c++ wget git lrzsz autoconf  telnet vim 
+	yum install -y gcc gcc-c++ wget git lrzsz autoconf net-tools  telnet vim 
 
 }

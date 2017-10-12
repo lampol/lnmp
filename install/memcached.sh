@@ -8,15 +8,10 @@
 # Email             807968192@qq.com
 # Distributed under terms of the MIT license.
 #=============================================================
-function Mk_Cp_Mysql(){
-	chown -R mysql.mysql $SOFT_DIR/mysql
-	cp $SOFT_DIR/mysql/bin/mysql  /usr/bin
-	cp $INIT_DIR/mysqld  /etc/init.d/mysqld
-	mkdir $SOFT_DIR/mysql/etc
-	cp $CONF_DIR/my.cnf   $SOFT_DIR/mysql/etc/
-	chmod +x /etc/init.d/mysqld
-	rm -f /etc/my.cnf
-	$SOFT_DIR/mysql/scripts/mysql_install_db  --datadir=/usr/local/mysql/data  --basedir=/usr/local/mysql  --user=mysql
+function Mk_Cp_Memcached(){
+	cp $INIT_DIR/memcached  /etc/init.d/
+	chmod +x /etc/init.d/memcached
+	/etc/init.d/memcached start
 }
 
 
@@ -27,6 +22,6 @@ function Install_Memcached(){
 	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
         CONFIGURE=CONF_MEMCACHED
         Tar $1 && Install $CONFIGURE
-      #  Mk_Cp_Mysql
+       Mk_Cp_Memcached
 
 }
