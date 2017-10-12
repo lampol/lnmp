@@ -72,6 +72,31 @@ chmod +x mysql_secure_installation  //给执行的权限
 IP/域名：8080  即可访问到根目录
 如果访问不到请检测网络 或者关闭防火墙重试
 
+## 安装其他扩展 
+
+### 安装memcached服务端 php-memcache客户端  
+
+> memcache的服务端和客户端可以单独安装互不影响，
+> 注意php-memcache要求是要安装php,安装完前面的php才可以安装
+
+#### 安装教程
+
+```javascript
+cd lnmp/shell
+chmod +x install_third_party.sh
+./install_third_party.sh
+然后选择 安装的软件和版本可以选择安装或者不安装
+
+```
+
+#### 启动服务
+
+
+```javascript
+/etc/init.d/memcached  start|stop|restart
+
+```
+
 ## 有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
