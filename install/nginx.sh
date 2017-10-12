@@ -28,6 +28,7 @@ function Install_Nginx(){
 	wget -c http://nginx.org/download/$1  -P $SRC_DIR
 	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
 	CONFIGURE=CONF_NGINX
+	[[ -d $SOFT_DIR/nginx ]] && rm -rf $SOFT_DIR/nginx
         Add_User $NGINX_USER $NGINX_GROUP	
 	Tar $1 && Install $CONFIGURE
 	Mk_Cp

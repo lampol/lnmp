@@ -21,6 +21,7 @@ function Install_Memcached(){
 	wget -c http://www.memcached.org/files/$1  -P  $SRC_DIR
 	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
         CONFIGURE=CONF_MEMCACHED
+	[[ -d $SOFT_DIR/memcached ]] && rm -rf $SOFT_DIR/memcached
         Tar $1 && Install $CONFIGURE
        Mk_Cp_Memcached
 
