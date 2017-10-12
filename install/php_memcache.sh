@@ -9,8 +9,9 @@
 # Distributed under terms of the MIT license.
 #=============================================================
 function Mk_Cp_Php_Memcache(){
-        MEMCACHE_SO=$SOFT_DIR/php/lib/php/extensions/no-debug-non-zts-20121212/memcache.so
-        sed -i  's/extension=\/usr\/local\/php\/lib\/php\/extensions\/no-debug-non-zts-20121212\/memcache.so//g' $SOFT_DIR/php/etc/php.ini
+       # MEMCACHE_SO=$SOFT_DIR/php/lib/php/extensions/no-debug-non-zts-20121212/memcache.so
+	MEMCACHE_SO=`find $SOFT_DIR/php/  -name "memcache.so"`
+        #sed -i  's/extension=\/usr\/local\/php\/lib\/php\/extensions\/no-debug-non-zts-20121212\/memcache.so//g' $SOFT_DIR/php/etc/php.ini
         sed -i "/Dynamic Extensions/aextension=$MEMCACHE_SO"   $SOFT_DIR/php/etc/php.ini
         /etc/init.d/php-fpm  restart
         php  -m 
