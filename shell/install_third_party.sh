@@ -24,7 +24,7 @@ fi
 #print welcome info
 clear
 echo "+------------------------------------------------------------------------+"
-Print_Color "32" "This is auto install lnmp script"         
+Print_Color "32" "This is auto install third extension"         
 echo "+------------------------------------------------------------------------+"
 #
 cat << EOF

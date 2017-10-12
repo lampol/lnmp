@@ -25,6 +25,13 @@
 >1. mysql-5.5.54
 >2. mysql-5.6.37
 
+#### Memcached 服务端
+>1. memcached-1.5.2.tar.gz 
+>2. memcached-1.4.39.tar.gz
+
+#### php-memcache 客户端
+>1. memcache-2.2.7.tgz
+
 ### 安装教程
 ####  下载
 

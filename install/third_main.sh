@@ -52,7 +52,7 @@ clear
         echo -e "1)  `Print_Color '32' 'memcached-1.5.2.tar.gz'`"
         echo -e "2)  `Print_Color '32' 'memcached-1.4.39.tar.gz'`"
         echo -e "3)  `Print_Color '32' 'I Don not Want To Install Memcached'`"
-        read -p "Please Enter Your Memcached  Choice(1/2/N) Default(1):" MEMCACHED_VER
+        read -p "Please Enter Your Memcached  Choice(1/2/3) Default(1):" MEMCACHED_VER
         [[ $MEMCACHED_VER -lt 1 ]] || [[ $MEMCACHED_VER -ge 4 ]] && MEMCACHED_VER=1
 #End Select Memcached Ver
 clear
@@ -63,7 +63,7 @@ clear
         PHP_MEMCACHE_VER=1
         echo -e "1)  `Print_Color '32' 'memcache-2.2.7.tgz'`"
         echo -e "2)  `Print_Color '32' 'I Don not Want To Install php-memcache'`"
-        read -p "Please Enter Your PHP Choice(1/N) Default(1):" PHP_MEMCACHE_VER
+        read -p "Please Enter Your PHP Choice(1/2) Default(1):" PHP_MEMCACHE_VER
         [[ $PHP_MEMCACHE_VER -lt 1 ]] || [[ $PHP_MEMCACHE_VER -ge 3 ]] && PHP_MEMCACHE_VER=1
 #End Select php-memcache Ver
 Yum_Install_Tool
