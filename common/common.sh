@@ -25,6 +25,19 @@ function Tar(){
        Print_Color "32" "Start Install $NAME_DIR Please Wait"      
        sleep 3
 }
+
+#tar and phpize
+function Tar_Phpize(){
+        NAME=$1
+       [[ -d $SRC_DIR/$NAME ]] && rm -rf $SRC_DIR/$NAME
+       tar xf  $SRC_DIR/$NAME  -C  $SRC_DIR
+       NAME_DIR=${NAME:0:(${#NAME}-7) }
+       cd $SRC_DIR/$NAME_DIR
+        $SOFT_DIR/php/bin/phpize
+       Print_Color "32" "Start Install $NAME_DIR Please Wait"
+       sleep 3
+}
+
 #add user
 function Add_User(){
 	USER=$1

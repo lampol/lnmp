@@ -19,16 +19,13 @@ function Mk_Cp_Mysql(){
 	$SOFT_DIR/mysql/scripts/mysql_install_db  --datadir=/usr/local/mysql/data  --basedir=/usr/local/mysql  --user=mysql
 }
 
-
 function Install_Php_Memcached(){
-	echo $1
-	exit
-	 [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
-	wget https://dev.mysql.com/get/Downloads/MySQL-$2/$1 --no-check-certificate  -P  $SRC_DIR
-	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
-        CONFIGURE=CONF_MYSQL
-	Add_User $MYSQL_USER $MYSQL_GROUP
-        Tar $1 && Install $CONFIGURE
-        Mk_Cp_Mysql
+        PHP_MEM=memcache-2.2.7.tar.gz
+         [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
+        wget https://pecl.php.net/get/$1  -O  $SRC_DIR/$PHP_MEM
+        [[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
+        CONFIGURE=CONF_PHP_MEMCACHE
+        Tar_Phpize $PHP_MEM  && Install $CONFIGURE
+       # Mk_Cp_Mysql
 
 }

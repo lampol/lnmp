@@ -5,3 +5,5 @@ CONF_PHP:./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/
 CONF_MYSQL:cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_UNIX_ADDR=/tmp/mysql.sock -DMYSQL_USER=mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_MYISAM_STORAGE_ENGINE=1  -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_DEBUG=0 -DWITH_READLINE=1 -DWITH_EMBEDDED_SERVER=1 -DENABLED_LOCAL_INFILE=1 
 
 CONF_MEMCACHED:./configure  --prefix=/usr/local/memcached
+
+CONF_PHP_MEMCACHE:./configure  --with-php-config=/usr/local/php/bin/php-config
