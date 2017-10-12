@@ -20,7 +20,7 @@ function Mk_Cp_Php_Memcache(){
 function Install_Php_Memcached(){
         PHP_MEM=memcache-2.2.7.tar.gz
          [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
-        wget https://pecl.php.net/get/$1  -O  $SRC_DIR/$PHP_MEM
+        wget -c  https://pecl.php.net/get/$1  -O  $SRC_DIR/$PHP_MEM
         [[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
         CONFIGURE=CONF_MEMCACHE_PHP
         Tar_Phpize $PHP_MEM  && Install $CONFIGURE

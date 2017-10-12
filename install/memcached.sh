@@ -21,9 +21,9 @@ function Mk_Cp_Mysql(){
 
 
 function Install_Memcached(){
-	yum install libevent-devel wget gcc gcc-c++ -y
+	yum install libevent-devel -y
 	 [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
-	wget http://www.memcached.org/files/$1  -P  $SRC_DIR
+	wget -c http://www.memcached.org/files/$1  -P  $SRC_DIR
 	[[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1
         CONFIGURE=CONF_MEMCACHED
         Tar $1 && Install $CONFIGURE
