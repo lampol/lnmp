@@ -115,7 +115,7 @@ clear
 #End Select MySQL Ver
 
 # yum install
-
+Yum_Install_Tool
 YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
 [[ $YUM_COUNT -lt 4 ]] &&  Yum_Install $1
 #install

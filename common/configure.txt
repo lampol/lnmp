@@ -6,4 +6,4 @@ CONF_MYSQL:cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_UNIX_ADDR=/tmp/
 
 CONF_MEMCACHED:./configure  --prefix=/usr/local/memcached
 
-CONF_PHP_MEMCACHE:./configure  --with-php-config=/usr/local/php/bin/php-config
+CONF_MEMCACHE_PHP:./configure  --with-php-config=/usr/local/php/bin/php-config

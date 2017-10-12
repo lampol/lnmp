@@ -10,6 +10,7 @@
 #=============================================================
 source $BASE_DIR/install/memcached.sh
 source $BASE_DIR/install/php_memcache.sh
+source $BASE_DIR/install/yum.sh
 
 function Start_Install_Third(){
         MEMCACHED_VER=$1
@@ -65,6 +66,6 @@ clear
         read -p "Please Enter Your PHP Choice(1/N) Default(1):" PHP_MEMCACHE_VER
         [[ $PHP_MEMCACHE_VER -lt 1 ]] || [[ $PHP_MEMCACHE_VER -ge 3 ]] && PHP_MEMCACHE_VER=1
 #End Select php-memcache Ver
-
+Yum_Install_Tool
  Start_Install_Third  $MEMCACHED_VER $PHP_MEMCACHE_VER
 }
