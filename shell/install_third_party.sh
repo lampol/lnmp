@@ -30,7 +30,7 @@ echo "+------------------------------------------------------------------------+
 cat << EOF
 ***********Are You Ready To Install Third Party You Can Install:*********
 
-***********Memcached  php-memcache***************************************
+***********Memcached  php-memcache Redis***************************************
         1) `Print_Color "32" "Install Now"`
         2) `Print_Color "32" "There Is No Software What I Want And Exit"`
 EOF
