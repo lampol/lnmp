@@ -9,9 +9,10 @@
 # Distributed under terms of the MIT license.
 #=============================================================
 function Mk_Cp_Redis(){
-	cp $INIT_DIR/memcached  /etc/init.d/
-	chmod +x /etc/init.d/memcached
-	/etc/init.d/memcached start
+	 REDIS_NAME=$1
+        REDIS_NAME_DIR=${REDIS_NAME:0:(${#REDIS_NAME}-7) }
+        REDIS_UTILS=$SRC_DIR/$REDIS_NAME_DIR/utils
+        source  $BASE_DIR/install/conf_redis.sh
 }
 
 
@@ -22,6 +23,6 @@ function Install_Redis(){
         CONFIGURE=CONF_REDIS
         [[ -d $SOFT_DIR/redis ]] && rm -rf $SOFT_DIR/redis
         Tar $1 && Install $CONFIGURE
-       # Mk_Cp_Redis
+        Mk_Cp_Redis $1
 
 }
