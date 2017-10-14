@@ -43,7 +43,7 @@ SCRIPTPATH=$REDIS_UTILS
 #Initial defaults
 REDIS_PORT=6379
 REDIS_CONFIG_FILE=/usr/local/redis/etc/reids.conf
-REDIS_LOG_FILE="/usr/local/reids/redis.log"
+REDIS_LOG_FILE="/usr/local/redis/log/redis.log"
 REDIS_DATA_DIR="/usr/local/redis/data"
 
 echo "Welcome to the redis service installer"
