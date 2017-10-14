@@ -11,12 +11,14 @@
 source $BASE_DIR/install/memcached.sh
 source $BASE_DIR/install/php_memcache.sh
 source $BASE_DIR/install/redis.sh
+source $BASE_DIR/install/php_redis.sh
 source $BASE_DIR/install/yum.sh
 
 function Start_Install_Third(){
         MEMCACHED_VER=$1
         PHP_MEMCACHE_VER=$2
 	REDIS_VER=$3
+	PHP_REDIS_VER=$4
 
         case "$MEMCACHED_VER" in
                 1)
@@ -48,10 +50,22 @@ function Start_Install_Third(){
                 REDIS_VER=N
                  ;;
         esac
+	 case "$PHP_REDIS_VER" in
+                1)
+                PHP_REDIS_VER=redis-3.1.4.tgz
+                ;;
+                2)
+                 PHP_REDIS_VER=redis-2.2.8.tgz
+                 ;;
+                3)
+                PHP_REDIS_VER=N
+                 ;;
+        esac
 
 	[[ $MEMCACHED_VER != N ]] && Install_Memcached $MEMCACHED_VER
 	[[ $PHP_MEMCACHE_VER != N ]] && Install_Php_Memcached $PHP_MEMCACHE_VER
 	[[ $REDIS_VER != N ]] && Install_Redis $REDIS_VER
+        [[ $PHP_REDIS_VER != N ]] && Install_Php_Redis $PHP_REDIS_VER
 }
 
 function Install_Third(){
@@ -92,8 +106,20 @@ clear
         read -p "Please Enter Your Redis Choice(1/2/3) Default(1):" REDIS_VER
         [[ $REDIS_VER -lt 1 ]] || [[ $REDIS_VER -ge 4 ]] && REDIS_VER=1
 #End Select Redis Ver
+clear
+#Start Select php-Redis Ver
+        echo -e "================================================="
+        echo -e "`Print_Color '32' 'Please Select php-Redis Version '`"
+        echo -e "================================================="
+        PHP_REDIS_VER=1
+        echo -e "1)  `Print_Color '32' 'redis-3.1.4.tgz'`"
+        echo -e "2)  `Print_Color '32' 'redis-2.2.8.tgz'`"
+        echo -e "3)  `Print_Color '32' 'I Don not Want To Install php-Redis'`"
+        read -p "Please Enter Your php-Redis Choice(1/2/3) Default(1):" PHP_REDIS_VER
+        [[ $PHP_REDIS_VER -lt 1 ]] || [[ $PHP_REDIS_VER -ge 4 ]] && PHP_REDIS_VER=1
+#End Select php-Redis Ver
 
 
  Yum_Install_Tool
- Start_Install_Third  $MEMCACHED_VER $PHP_MEMCACHE_VER $REDIS_VER
+ Start_Install_Third  $MEMCACHED_VER $PHP_MEMCACHE_VER $REDIS_VER $PHP_REDIS_VER
 }
