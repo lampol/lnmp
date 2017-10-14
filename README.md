@@ -32,6 +32,14 @@
 #### php-memcache 客户端
 >1. memcache-2.2.7.tgz
 
+#### Redis 服务端
+>1 redis-3.2.9.tar.gz
+>2 redis-4.0.1.tar.gz
+
+#### php-redis 客户端
+>1 redis-3.1.4.tgz
+>2 redis-2.2.8.tgz
+
 ### 安装教程
 ####  下载
 
@@ -81,14 +89,14 @@ IP/域名：8080  即可访问到根目录
 
 ## 安装其他扩展 
 
-### 安装memcached服务端 php-memcache客户端  
+### 安装memcached redis 服务端 php-memcache php-redis客户端  
 
 > memcache的服务端和客户端可以单独安装互不影响，
 > 注意php-memcache要求是要安装php,安装完前面的php才可以安装
 
 #### 安装教程
 
-```javascript
+```
 cd lnmp/shell
 chmod +x install_third_party.sh
 ./install_third_party.sh
@@ -101,6 +109,7 @@ chmod +x install_third_party.sh
 
 ```javascript
 /etc/init.d/memcached  start|stop|restart
+/etc/init.d/redis_6379 start|stop|restart
 
 ```
 
