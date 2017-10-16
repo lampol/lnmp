@@ -11,8 +11,15 @@
 function Mk_Cp_Redis(){
 	 REDIS_NAME=$1
         REDIS_NAME_DIR=${REDIS_NAME:0:(${#REDIS_NAME}-7) }
-        REDIS_UTILS=$SRC_DIR/$REDIS_NAME_DIR/utils
-        #source  $BASE_DIR/install/conf_redis.sh
+        mkdir -p  $SOFT_DIR/redis/etc/   $SOFT_DIR/redis/data  $SOFT_DIR/redis/log
+        touch  $SOFT_DIR/redis/log/redis.log
+        cp $SRC_DIR/$REDIS_NAME_DIR/redis.conf  $SOFT_DIR/redis/etc/
+        cp $INIT_DIR/redis  /etc/init.d/
+        chmod +x /etc/init.d/redis
+        sed -i 's#^logfile .*$#logfile '"$SOFT_DIR"'/redis/log/redis.log#g'  $SOFT_DIR/redis/etc/redis.conf
+        sed -i 's#^dir .*$#dir '"$SOFT_DIR"'/redis/data#g'  $SOFT_DIR/redis/etc/redis.conf
+        sed -i 's#^pidfile .*$#pidfile /var/run/redis.pid#g'  $SOFT_DIR/redis/etc/redis.conf
+        sed -i 's#^daemonize no#daemonize yes#g'  $SOFT_DIR/redis/etc/redis.conf
 }
 
 
