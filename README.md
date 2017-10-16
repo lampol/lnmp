@@ -17,9 +17,10 @@
 
 #### php
 >1. php-5.3.29
->2. php-5.5.38
->3. php-5.6.30
->4. php-7.1.1
+>2. php-5.4.45
+>3. php-5.5.38
+>4. php-5.6.30
+>5. php-7.1.1
 
 #### MySQL
 >1. mysql-5.5.54
@@ -109,7 +110,7 @@ chmod +x install_third_party.sh
 
 ```
 /etc/init.d/memcached  start|stop|restart
-/etc/init.d/redis_6379 start|stop|restart
+/etc/init.d/redis      start|stop|restart
 
 ```
 
