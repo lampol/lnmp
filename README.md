@@ -47,7 +47,7 @@
 
 #### 开始安装
 
-```javascript
+```
  cd  lnmp  //下载到本地后进到目录里面
  chmod  +x  install.sh  //给安装脚本赋执行的权限
  ./install.sh   //开始执行安装
@@ -56,7 +56,7 @@
 #### 使用
 #### 启动服务
 
-```javascript
+```
 /etc/init.d/nginx    start  //注意nginx的端口改成了8080
 /etc/init.d/php-fpm  start 
 /etc/init.d/mysql   start
@@ -67,7 +67,7 @@
 
 #### 修改root密码 禁止远程root登录
 
-```javascript
+```
 cd lnmp/shell //进入到shell文件夹 
 chmod +x mysql_secure_installation  //给执行的权限
 ./mysql_secure_installation  //按照提示一步一步操作  设置root密码 以及禁止root的远程登录
@@ -75,7 +75,7 @@ chmod +x mysql_secure_installation  //给执行的权限
 ```
 
 #### 检测启动
-```javascript
+```
 运行这个命令   netstat  -nltp 
 如果有8080  9000  3306  端口号 代表启动成功
 
@@ -107,7 +107,7 @@ chmod +x install_third_party.sh
 #### 启动服务
 
 
-```javascript
+```
 /etc/init.d/memcached  start|stop|restart
 /etc/init.d/redis_6379 start|stop|restart
 

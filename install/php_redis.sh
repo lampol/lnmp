@@ -18,7 +18,7 @@ function Mk_Cp_Php_Redis(){
 
 
 function Install_Php_Redis(){
-        REDIS_NAME=${1:0:(${#1}-4) }.tar.gz
+        REDIS_NAME=${1:0:(${#1}-4)}.tar.gz
          [[ -f $SRC_DIR/$1 ]] && rm -rf $SRC_DIR/${1%%.*}*
         wget -c  https://pecl.php.net/get/$1  -O  $SRC_DIR/$REDIS_NAME
         [[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "download $1 failed please try again"`" && exit 1

@@ -12,7 +12,7 @@ function Mk_Cp_Redis(){
 	 REDIS_NAME=$1
         REDIS_NAME_DIR=${REDIS_NAME:0:(${#REDIS_NAME}-7) }
         REDIS_UTILS=$SRC_DIR/$REDIS_NAME_DIR/utils
-        source  $BASE_DIR/install/conf_redis.sh
+        #source  $BASE_DIR/install/conf_redis.sh
 }
 
 

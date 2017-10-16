@@ -34,12 +34,15 @@ function Start_Install(){
                  PHP_VER="php-5.3.29.tar.gz"
                 ;;
                 2)
-                 PHP_VER="php-5.5.38.tar.gz"
+                 PHP_VER="php-5.4.45.tar.gz"
                  ;;
-                3)
+		3)
+		PHP_VER="php-5.5.38.tar.gz"
+		;;
+                4)
                  PHP_VER="php-5.6.30.tar.gz"
                  ;;
-                4)
+                5)
                  PHP_VER="php-7.1.1.tar.gz"
                  ;;
         esac
@@ -95,11 +98,12 @@ clear
         echo -e "================================================="
         PHP_VER=2
         echo -e "1)  `Print_Color '32' 'php-5.3.29'`"
-        echo -e "2)  `Print_Color '32' 'php-5.5.38'`"
-        echo -e "3)  `Print_Color '32' 'php-5.6.30'`"
-        echo -e "4)  `Print_Color '32' 'php-7.1.1'`"
-        read -p "Please Enter Your PHP Choice(1-4) Default(2):" PHP_VER
-        [[ $PHP_VER -lt 1 ]] || [[ $PHP_VER -ge 5 ]] && PHP_VER=2
+        echo -e "2)  `Print_Color '32' 'php-5.4.45'`"
+        echo -e "3)  `Print_Color '32' 'php-5.5.38'`"
+        echo -e "4)  `Print_Color '32' 'php-5.6.30'`"
+        echo -e "5)  `Print_Color '32' 'php-7.1.1'`"
+        read -p "Please Enter Your PHP Choice(1-5) Default(2):" PHP_VER
+        [[ $PHP_VER -lt 1 ]] || [[ $PHP_VER -ge 6 ]] && PHP_VER=2
 #End Select PHP Ver
 clear
 #Start Select MySQL Ver
