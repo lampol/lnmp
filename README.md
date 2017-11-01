@@ -88,6 +88,20 @@ chmod +x mysql_secure_installation  //给执行的权限
 IP/域名：8080  即可访问到根目录
 如果访问不到请检测网络 或者关闭防火墙重试
 
+## 安装php 框架 暂时只支持 ThinkPHP 5.0.11
+
+> 注意 安装框架前一定要先安装lnmp的环境
+> 已经配置好了nginx的配置 直接ip访问即可 
+
+#### 开始安装
+
+```cd lnmp/shell
+   chmod +x install_framework.sh
+   ./install_framework.sh 
+   //剩下的按提示操作
+
+```
+
 ## 安装其他扩展 
 
 ### 安装memcached redis 服务端 php-memcache php-redis客户端  
