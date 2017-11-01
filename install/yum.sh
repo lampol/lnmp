@@ -27,3 +27,10 @@ function Yum_Install_Tool(){
 	yum install -y gcc gcc-c++ wget git lrzsz autoconf net-tools  telnet vim 
 
 }
+
+function Install_Composer(){
+        curl -sS https://getcomposer.org/installer | php
+        [[ $? -ne 0 ]] && clear &&  echo -e "`Print_Color '31' "composer install failed please try again"`" && exit 1
+        mv composer.phar /usr/local/bin/composer
+        composer config -g repo.packagist composer https://packagist.phpcomposer.com
+}
