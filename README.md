@@ -137,7 +137,7 @@ chmod +x install_third_party.sh
 
 * QQ: 807968192 
 * php/linux技术交流群：163656536
-* 头条号 : (IT圈的那些事儿)
+* 头条号 : (lampol)
 * 个人博客: (http://www.lampol-blog.com)
 * 百度传课视频教程: (https://chuanke.baidu.com/course/_lampol_____.html)
 * 邮件：(807968192@qq.com)
@@ -146,4 +146,4 @@ chmod +x install_third_party.sh
 * 如果不能访问，请关闭防火墙重试
 
 #### 声明
-> 此项目还有很多不足，后期会慢慢去完善，后期会加入 memcache  redis  还有框架 thinkphp laravel 等都会实现一键安装。同时也欢迎大家提出建设性的意见或者建议。
+> 欢迎大家提出建设性的意见或者建议。

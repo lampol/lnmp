@@ -19,7 +19,7 @@ function Yum_Install(){
                yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
         fi
 	#start install dependency
-        yum install -y  pcre-devel openssl openssl-devel libxml2-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel libicu-devel libmcrypt-devel libxslt-devel cmake ncurses-devel perl  bison
+        yum install -y  pcre-devel openssl openssl-devel libxml2-devel libcurl-devel libjpeg-devel libpng-devel freetype-devel libicu-devel libmcrypt-devel libxslt-devel cmake ncurses-devel perl  bison figlet
 }
 
 

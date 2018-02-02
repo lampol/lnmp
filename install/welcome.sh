@@ -22,9 +22,10 @@ function welcome(){
 	chkconfig --add mysqld
 
 	clear
-	echo -e "================================================="
-	echo -e "****" `Print_Color '32' '    CONGRATULATIONS INSTALL LNMP SUCCESS'`
-	echo -e "================================================="
+
+	figlet  install  success
+
+
 	echo -e "****"                 VERSION				     
 	echo -e "*" 						 	     
 	echo -e "*"     `Print_Color '32'  "$1"`			     
