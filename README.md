@@ -141,8 +141,8 @@ chmod +x install_third_party.sh
 * php/linux技术交流群：163656536
 * 头条号 : (lampol)
 * 个人博客: (http://www.lampol-blog.com)
-* 百度传课视频教程: (https://chuanke.baidu.com/course/_lampol_____.html)
-* 邮件：(807968192@qq.com)
+* 腾讯课堂: (https://ke.qq.com/course/list/lampol)
+
 ## 常见问题及解决
 * 如果出现安装错误，可以重试，特别是下载软件的时候，网络不好可能会出错误
 * 如果不能访问，请关闭防火墙重试
