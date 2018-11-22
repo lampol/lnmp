@@ -29,7 +29,8 @@
 >2. mysql-5.6.37
 
 #### ThinkPHP
->  ThinkPHP 5.0.14
+>  ThinkPHP 5.0.22
+>  ThinkPHP 5.1.29
 
 #### Memcached 服务端
 >1. memcached-1.5.2.tar.gz 
@@ -93,7 +94,7 @@ chmod +x mysql_secure_installation  //给执行的权限
 IP/域名：8080  即可访问到根目录
 如果访问不到请检测网络 或者关闭防火墙重试
 
-## 安装php 框架 暂时只支持 ThinkPHP 5.0.14
+## 安装php 框架 暂时只支持 ThinkPHP 5.0.22/5.1.29
 
 > 注意 安装框架前一定要先安装lnmp的环境
 > 已经配置好了nginx的配置 直接ip访问即可 
