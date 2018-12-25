@@ -36,21 +36,21 @@ function Start_Install(){
                 2)
                  PHP_VER="php-5.4.45.tar.gz"
                  ;;
-		3)
-		PHP_VER="php-5.5.38.tar.gz"
-		;;
+		        3)
+		         PHP_VER="php-5.5.38.tar.gz"
+		        ;;
                 4)
-                 PHP_VER="php-5.6.30.tar.gz"
+                 PHP_VER="php-5.6.39.tar.gz"
                  ;;
-		5)
-  		 PHP_VER="php-7.0.27.tar.gz"
-  		 ;;
- 		6)
- 		 PHP_VER="php-7.1.14.tar.gz"
- 		 ;;
- 		7)
- 		 PHP_VER="php-7.2.2.tar.gz"
- 		 ;;
+		        5)
+  		        PHP_VER="php-7.0.33.tar.gz"
+  		        ;;
+ 		        6)
+ 		        PHP_VER="php-7.1.25.tar.gz"
+ 		        ;;
+ 		        7)
+ 		        PHP_VER="php-7.2.13.tar.gz"
+ 		        ;;
         esac
 
         case "$MySQL_VER" in           
@@ -106,10 +106,10 @@ clear
         echo -e "1)  `Print_Color '32' 'php-5.3.29'`"
         echo -e "2)  `Print_Color '32' 'php-5.4.45'`"
         echo -e "3)  `Print_Color '32' 'php-5.5.38'`"
-        echo -e "4)  `Print_Color '32' 'php-5.6.30'`"
-	echo -e "5)  `Print_Color '32' 'php-7.0.27'`"
-	echo -e "6)  `Print_Color '32' 'php-7.1.14'`"
-        echo -e "7)  `Print_Color '32' 'php-7.2.2'`"
+        echo -e "4)  `Print_Color '32' 'php-5.6.39'`"
+	    echo -e "5)  `Print_Color '32' 'php-7.0.33'`"
+	    echo -e "6)  `Print_Color '32' 'php-7.1.25'`"
+        echo -e "7)  `Print_Color '32' 'php-7.2.13'`"
         read -p "Please Enter Your PHP Choice(1-7) Default(2):" PHP_VER
         [[ $PHP_VER -lt 1 ]] || [[ $PHP_VER -ge 8 ]] && PHP_VER=2
 #End Select PHP Ver
