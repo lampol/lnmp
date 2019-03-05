@@ -16,7 +16,7 @@ function Start_Install_Framework(){
         PROJECT_NAME=$2
 	case "$THINKPHP_VER" in
 		1)
-		THINKPHP_VER=v5.0.22
+		THINKPHP_VER=v5.0.24 
 		;;
 		2)
                 THINKPHP_VER=v5.1.29
@@ -37,7 +37,7 @@ clear
         echo -e "`Print_Color '32' 'Please Select ThinkPHP Version'`"
         echo -e "================================================="
         THINKPHP_VER=1
-        echo -e "1)  `Print_Color '32' '5.0.22'`"
+        echo -e "1)  `Print_Color '32' '5.0.24'`"
         echo -e "2)  `Print_Color '32' '5.1.29'`"
         echo -e "3)  `Print_Color '32' 'I Don not Want To Install ThinkPHP'`"
         read -p "Please Enter Your  Choice(1/2) Default(1):" THINKPHP_VER
