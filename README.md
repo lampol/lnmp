@@ -138,8 +138,6 @@ chmod +x install_third_party.sh
 
 * QQ: 807968192 
 * php/linux技术交流群：163656536
-* 头条号 : (lampol)
-* 个人博客: (http://www.lampol-blog.com)
 * 腾讯课堂: (https://ke.qq.com/course/list/lampol)
 
 ## 常见问题及解决
