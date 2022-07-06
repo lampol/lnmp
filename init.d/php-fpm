@@ -1,0 +1,73 @@
+#! /bin/sh
+
+# =================================================================
+# FileName          php.sh
+# Copyright (C)     2016 root <root@lampol>
+# CreateTime        2016-11-28 10:25 
+# Author            Lampol
+# Email             807968192@qq.com
+# Distributed under terms of the MIT license.
+#==================================================================
+
+#======================REBOOT AUTOSTART============================
+#chkconfig:2345 53 77 
+#Description:This is php start stop reload script
+
+#====================Source Fucntions==============================
+
+. /etc/init.d/functions
+
+if [ $# -ne 1 ]
+then
+        echo "Usage $0 {start|stop|reload}"
+        exit 8
+fi
+
+
+PROG=php-fpm
+EXEC=/usr/local/php/sbin/$PROG
+PIDFILE=/var/run/$PROG.pid
+LOCKFILE=/var/lock/subsys/$PROG
+CONFFILE=/usr/local/php/etc/$PROG.conf
+
+function start(){
+        if netstat -nltp| grep -q  $PROG
+        then
+                echo "$PROG(pid `pidof $PROG`) already running"
+                exit 1
+        else
+                $EXEC -y $CONFFILE
+                [ $? -eq 0 ] && touch $LOCKFILE
+                action "Start $PROG SUCCESS" /bin/true
+        fi
+}
+function stop(){
+        if netstat -nltp| grep -q $PROG
+        then
+                kill -QUIT `cat $PIDFILE`
+                [ $? -ne 0 ] && rm -f $PIDFILE && rm -f $LOCKFILE
+                action "Stop $PROG SUCCESS" /bin/true
+        else
+                action "$PROG is not running" /bin/false
+
+        fi
+
+}
+
+case "$1" in
+        start)
+        start
+        ;;
+        stop)
+        stop
+        ;;
+        restart)
+        stop
+        sleep 1
+        start
+        ;;
+        *)
+        echo "Usage $0 {start|stop|reload}"
+        exit 5
+esac
+
