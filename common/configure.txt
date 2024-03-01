@@ -9,3 +9,5 @@ CONF_MEMCACHED:./configure  --prefix=/usr/local/memcached
 CONF_MEMCACHE_PHP:./configure  --with-php-config=/usr/local/php/bin/php-config
 
 CONF_REDIS:make PREFIX=/usr/local/redis install
+
+CONF_CMAKE:./bootstrap

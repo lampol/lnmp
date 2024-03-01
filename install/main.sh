@@ -13,6 +13,8 @@ source $BASE_DIR/install/nginx.sh
 source $BASE_DIR/install/php.sh
 source $BASE_DIR/install/mysql.sh
 source $BASE_DIR/install/welcome.sh
+source $BASE_DIR/install/cmake.sh
+source $BASE_DIR/install/libzip.sh
 
 function Start_Install(){
         NGINX_VER=$1
@@ -34,13 +36,13 @@ function Start_Install(){
                  PHP_VER="php-5.6.40.tar.gz"
                 ;;
                 2)
-                 PHP_VER="php-7.0.33.tar.gz"
+                 PHP_VER="php-7.2.19.tar.gz"
                  ;;
 		3)
-		 PHP_VER="php-7.1.30.tar.gz"
+		 PHP_VER="php-7.4.33.tar.gz"
 		 ;;
                 4)
-                 PHP_VER="php-7.2.19.tar.gz"
+                 PHP_VER="php-8.2.15.tar.gz"
                  ;;
 		5)
   		 PHP_VER="php-7.3.6.tar.gz"
@@ -64,8 +66,14 @@ function Start_Install(){
 #	YUM_COUNT=`rpm -aq| grep -e cmake  -e libpng-devel -e ncurses-devel -e openssl-devel|wc -l`
  #       [[ $YUM_COUNT -lt 4 ]] &&  Yum_Install
         Install_Nginx $NGINX_VER
-        Install_Mysql $MySQL_VER $VER
+	if [ "$PHP_VER" == php-7.4.33.tar.gz ] || [ "$PHP_VER" == php-8.2.15.tar.gz ]
+        then
+               yum remove -y cmake
+               Install_Cmake 'cmake-3.20.6.tar.gz'
+               Install_Libzip
+        fi
         Install_Php  $PHP_VER
+        Install_Mysql $MySQL_VER $VER
 	welcome $NGINX_VER  $MySQL_VER $PHP_VER
 }
 
@@ -98,10 +106,9 @@ clear
         echo -e "================================================="
         PHP_VER=2
         echo -e "1)  `Print_Color '32' 'php-5.6.40'`"
-        echo -e "2)  `Print_Color '32' 'php-7.0.33'`"
-        echo -e "3)  `Print_Color '32' 'php-7.1.30'`"
-        echo -e "4)  `Print_Color '32' 'php-7.2.19'`"
-	echo -e "5)  `Print_Color '32' 'php-7.3.6'`"
+        echo -e "2)  `Print_Color '32' 'php-7.2.19'`"
+        echo -e "3)  `Print_Color '32' 'php-7.4.33'`"
+        echo -e "4)  `Print_Color '32' 'php-8.2.15'`"
         read -p "Please Enter Your PHP Choice(1-7) Default(2):" PHP_VER
         [[ $PHP_VER -lt 1 ]] || [[ $PHP_VER -ge 6 ]] && PHP_VER=2
 #End Select PHP Ver
